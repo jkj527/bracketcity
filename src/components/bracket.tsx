@@ -1,27 +1,26 @@
 import React from "react";
 import { Bracket, IRoundProps } from 'react-brackets';
 import '../styles/bracket.css';
+import { survivors } from "../data";
 
-const survivors: string[] = [
-    "Boston Rob",
-    "Sandra Diaz-Twine",
-    "Tony Vlachos",
-    "John Cochran",
-    "Yul Kwon",
-    "Tyson Apostol",
-    "Rick Devens",
-    "Jeremy Collins",
-    "Earl Cole",
-    "Kim Spradlin",
-    "Amber Mariano",
-    "Richard Hatch",
-    "Parvati Shallow",
-    "Todd Herzog",
-    "J.T. Thomas",
-    "Denise Stapley"
-];
-
-console.log(survivors);
+// const survivors: string[] = [
+//     "Boston Rob",
+//     "Sandra Diaz-Twine",
+//     "Tony Vlachos",
+//     "John Cochran",
+//     "Yul Kwon",
+//     "Tyson Apostol",
+//     "Rick Devens",
+//     "Jeremy Collins",
+//     "Earl Cole",
+//     "Kim Spradlin",
+//     "Amber Mariano",
+//     "Richard Hatch",
+//     "Parvati Shallow",
+//     "Todd Herzog",
+//     "J.T. Thomas",
+//     "Denise Stapley"
+// ];
 
 const rounds: IRoundProps[] = [
   {
