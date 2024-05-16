@@ -16,27 +16,27 @@ const rounds: IRoundProps[] = [
       },
       {
         id: 3,
-        teams: [{ name: 'Team A' }, { name: 'Team B' }],
+        teams: [{ name: 'Team E' }, { name: 'Team F' }],
       },
       {
         id: 4,
-        teams: [{ name: 'Team C' }, { name: 'Team D' }],
+        teams: [{ name: 'Team G' }, { name: 'Team H' }],
       },
       {
         id: 5,
-        teams: [{ name: 'Team A' }, { name: 'Team B' }],
+        teams: [{ name: 'Team I' }, { name: 'Team J' }],
       },
       {
         id: 6,
-        teams: [{ name: 'Team C' }, { name: 'Team D' }],
+        teams: [{ name: 'Team K' }, { name: 'Team L' }],
       },
       {
         id: 7,
-        teams: [{ name: 'Team A' }, { name: 'Team B' }],
+        teams: [{ name: 'Team M' }, { name: 'Team N' }],
       },
       {
         id: 8,
-        teams: [{ name: 'Team C' }, { name: 'Team D' }],
+        teams: [{ name: 'Team O' }, { name: 'Team P' }],
       },
     ],
   },
@@ -85,12 +85,12 @@ const rounds: IRoundProps[] = [
   },
 ];
 
-const bracket = () => {
+const BracketComponent = () => {
   return (
     <div className="bracket">
-        <Bracket rounds={rounds} />;
+      <Bracket rounds={rounds} />;
     </div>
   )
 };
 
-export default bracket;
+export default BracketComponent;
