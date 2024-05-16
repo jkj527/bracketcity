@@ -45,19 +45,19 @@ const rounds: IRoundProps[] = [
     seeds: [
       {
         id: 9,
-        teams: [{ name: 'Team A' }, { name: 'Team C' }],
+        teams: [],
       },
       {
         id: 10,
-        teams: [{ name: 'Team A' }, { name: 'Team C' }],
+        teams: [],
       },
       {
         id: 11,
-        teams: [{ name: 'Team A' }, { name: 'Team C' }],
+        teams: [],
       },
       {
         id: 12,
-        teams: [{ name: 'Team A' }, { name: 'Team C' }],
+        teams: [],
       },
     ],
   },
@@ -66,11 +66,11 @@ const rounds: IRoundProps[] = [
     seeds: [
       {
         id: 13,
-        teams: [{ name: 'Team A' }, { name: 'Team C' }],
+        teams: [],
       },
       {
         id: 14,
-        teams: [{ name: 'Team A' }, { name: 'Team C' }],
+        teams: [],
       },
     ],
   },
@@ -79,7 +79,7 @@ const rounds: IRoundProps[] = [
     seeds: [
       {
         id: 13,
-        teams: [{ name: 'Team A' }, { name: 'Team C' }],
+        teams: [],
       },
     ],
   },
