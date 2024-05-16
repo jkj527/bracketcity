@@ -5,15 +5,13 @@ import { survivors } from "../data";
 const WinnerSelector: React.FC = () => {
     const [contestants, setContestants] = useState<string[]>(survivors);
     const [index, setIndex] = useState<number>(0);
-    const [winners, setWinners] = useState<string[]>([]); // separate state to track winners
+    const [winners, setWinners] = useState<string[]>([]);
 
     const handleClick = (winnerIndex: number) => {
         const winner = contestants[index + winnerIndex];
 
-        // Add the winner to the winners list
         setWinners(prevWinners => [...prevWinners, winner]);
 
-        // Move to the next pair of contestants
         setIndex(prevIndex => prevIndex + 2);
     };
 
