@@ -78,7 +78,7 @@ const rounds: IRoundProps[] = [
     title: 'Championship',
     seeds: [
       {
-        id: 13,
+        id: 15,
         teams: [],
       },
     ],
