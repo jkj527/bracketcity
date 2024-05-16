@@ -2,41 +2,62 @@ import React from "react";
 import { Bracket, IRoundProps } from 'react-brackets';
 import '../styles/bracket.css';
 
+const survivors: string[] = [
+    "Boston Rob",
+    "Sandra Diaz-Twine",
+    "Tony Vlachos",
+    "John Cochran",
+    "Yul Kwon",
+    "Tyson Apostol",
+    "Rick Devens",
+    "Jeremy Collins",
+    "Earl Cole",
+    "Kim Spradlin",
+    "Amber Mariano",
+    "Richard Hatch",
+    "Parvati Shallow",
+    "Todd Herzog",
+    "J.T. Thomas",
+    "Denise Stapley"
+];
+
+console.log(survivors);
+
 const rounds: IRoundProps[] = [
   {
     title: 'Round One',
     seeds: [
       {
         id: 1,
-        teams: [{ name: 'Team A' }, { name: 'Team B' }],
+        teams: [{ name: survivors[0] }, { name: survivors[1] }],
       },
       {
         id: 2,
-        teams: [{ name: 'Team C' }, { name: 'Team D' }],
+        teams: [{ name: survivors[2] }, { name: survivors[3] }],
       },
       {
         id: 3,
-        teams: [{ name: 'Team E' }, { name: 'Team F' }],
+        teams: [{ name: survivors[4] }, { name: survivors[5] }],
       },
       {
         id: 4,
-        teams: [{ name: 'Team G' }, { name: 'Team H' }],
+        teams: [{ name: survivors[6] }, { name: survivors[7] }],
       },
       {
         id: 5,
-        teams: [{ name: 'Team I' }, { name: 'Team J' }],
+        teams: [{ name: survivors[8] }, { name: survivors[9] }],
       },
       {
         id: 6,
-        teams: [{ name: 'Team K' }, { name: 'Team L' }],
+        teams: [{ name: survivors[10] }, { name: survivors[11] }],
       },
       {
         id: 7,
-        teams: [{ name: 'Team M' }, { name: 'Team N' }],
+        teams: [{ name: survivors[12] }, { name: survivors[13] }],
       },
       {
         id: 8,
-        teams: [{ name: 'Team O' }, { name: 'Team P' }],
+        teams: [{ name: survivors[14] }, { name: survivors[15] }],
       },
     ],
   },
