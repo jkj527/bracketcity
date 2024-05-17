@@ -1,8 +1,11 @@
 import React from "react";
+import '../styles/NavBar.css';
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
     return (
-        <div>Bracket City</div>
+        <div className="navbar">
+            Bracket City
+        </div>
     );
 }
 
