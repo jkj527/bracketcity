@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import '../styles/WinnerSelector.css';
-import { survivors } from "../data";
+import { survivors, tvshows } from "../data";
 
 const WinnerSelector: React.FC = () => {
+    const [selectedOption, setSelectedOption] = useState('survivors');
     const [contestants, setContestants] = useState<string[]>(survivors);
     const [index, setIndex] = useState<number>(0);
     const [winners, setWinners] = useState<string[]>([]);
+
+    const handleSelectionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = event.target.value;
+        setSelectedOption(value);
+        if (value === 'survivors') {
+            setContestants(survivors);
+        } else {
+            setContestants(tvshows);
+        }
+        setIndex(0);
+        setWinners([]);
+    };
 
     const handleClick = (winnerIndex: number) => {
         const winner = contestants[index + winnerIndex];
@@ -19,6 +32,10 @@ const WinnerSelector: React.FC = () => {
 
     return (
         <div className="winner">
+            <select value={selectedOption} onChange={handleSelectionChange}>
+                <option value="survivors">Survivor</option>
+                <option value="tvshows">TV Shows</option>
+            </select>
             {options.length === 2 ? (
                 <>
                     <button onClick={() => handleClick(0)}>{options[0]}</button>
