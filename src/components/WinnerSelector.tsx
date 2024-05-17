@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import '../styles/WinnerSelector.css';
 import { survivors, tvshows } from "../data";
+import BracketComponent from "./bracket";
 
 const WinnerSelector: React.FC = () => {
     const [selectedOption, setSelectedOption] = useState('survivors');
@@ -44,6 +45,7 @@ const WinnerSelector: React.FC = () => {
                     <div>No more contestants left</div>
                 )}
             </div>
+            <BracketComponent selectedOption={selectedOption} />
         </div>
     );
 }
