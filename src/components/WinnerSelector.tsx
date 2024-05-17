@@ -22,9 +22,7 @@ const WinnerSelector: React.FC = () => {
 
     const handleClick = (winnerIndex: number) => {
         const winner = contestants[index + winnerIndex];
-
         setWinners(prevWinners => [...prevWinners, winner]);
-
         setIndex(prevIndex => prevIndex + 2);
     };
 
@@ -36,14 +34,16 @@ const WinnerSelector: React.FC = () => {
                 <option value="survivors">Survivor</option>
                 <option value="tvshows">TV Shows</option>
             </select>
-            {options.length === 2 ? (
-                <>
-                    <button onClick={() => handleClick(0)}>{options[0]}</button>
-                    <button onClick={() => handleClick(1)}>{options[1]}</button>
-                </>
-            ) : (
-                <div>No more contestants left</div>
-            )}
+            <div className="winner-buttons">
+                {options.length === 2 ? (
+                    <>
+                        <button onClick={() => handleClick(0)}>{options[0]}</button>
+                        <button onClick={() => handleClick(1)}>{options[1]}</button>
+                    </>
+                ) : (
+                    <div>No more contestants left</div>
+                )}
+            </div>
         </div>
     );
 }
