@@ -16,3 +16,23 @@ export const survivors: string[] = [
     "J.T. Thomas",
     "Denise Stapley"
 ];
+
+export const tvshows: string[] = [
+    "Breaking Bad",
+    "Game of Thrones",
+    "Friends",
+    "The Office",
+    "Scrubs",
+    "Parks & Rec",
+    "Black Mirror",
+    "Westworld",
+    "How I Met Your Mother",
+    "Archer",
+    "The Sopranos",
+    "Rick and Morty",
+    "Brooklyn Nine-Nine",
+    "Succession",
+    "Silicon Valley",
+    "Lost",
+    "The Boys"
+];

@@ -1,8 +1,35 @@
 .winner {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    gap: 20px;
+}
+
+.winner select {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(30, 30, 54);
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.winner select:hover {
+    background-color: #0056b3;
+}
+
+.winner select:active {
+    background-color: #004085;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.winner-buttons {
+    display: flex;
     gap: 10px;
 }
 
@@ -26,4 +53,21 @@
 .winner button:active {
     background-color: #004085;
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.winner h2 {
+    font-size: 24px;
+    color: rgb(30, 30, 54);
+    margin-bottom: 10px;
+}
+
+.winner ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.winner ul li {
+    font-size: 18px;
+    color: rgb(30, 30, 54);
+    margin: 5px 0;
 }
