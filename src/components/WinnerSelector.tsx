@@ -14,8 +14,10 @@ const WinnerSelector: React.FC = () => {
         setSelectedOption(value);
         if (value === 'survivors') {
             setContestants(survivors);
-        } else {
+        } else if (value === 'tvshows') {
             setContestants(tvshows);
+        } else if (value === 'movies') {
+            setContestants(movies);
         }
         setIndex(0);
         setWinners([]);
@@ -34,6 +36,7 @@ const WinnerSelector: React.FC = () => {
             <select value={selectedOption} onChange={handleSelectionChange}>
                 <option value="survivors">Survivor</option>
                 <option value="tvshows">TV Shows</option>
+                <option value="movies">Movies</option>
             </select>
             <div className="winner-buttons">
                 {options.length === 2 ? (
