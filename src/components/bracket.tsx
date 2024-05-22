@@ -1,14 +1,24 @@
 import React from "react";
 import { Bracket, IRoundProps } from 'react-brackets';
 import '../styles/bracket.css';
-import { survivors, tvshows } from "../data";
+import { survivors, tvshows, movies } from "../data";
 
 interface BracketComponentProps {
     selectedOption: string;
 }
 
 const BracketComponent: React.FC<BracketComponentProps> = ({ selectedOption }) => {
-    const contestants = selectedOption === 'survivors' ? survivors : tvshows;
+    // const contestants = selectedOption === 'survivors' ? survivors : tvshows;
+    let contestants: string[];
+    if (selectedOption === 'survivors') {
+        contestants = survivors;
+    } else if (selectedOption === 'tvshows') {
+        contestants = tvshows;
+    } else if (selectedOption === 'movies') {
+        contestants = movies;
+    } else {
+        contestants = [];
+    }
 
     const rounds: IRoundProps[] = [
         {
