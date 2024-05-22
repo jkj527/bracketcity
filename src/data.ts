@@ -36,3 +36,23 @@ export const tvshows: string[] = [
     "Lost",
     "The Boys"
 ];
+
+export const movies: string[] = [
+    "Inglorious Basterds",
+    "The Dark Knight",
+    "The Shawshank Redemption",
+    "Pulp Fiction",
+    "The Silence of the Lambs",
+    "The Godfather",
+    "The Shining",
+    "Whiplash",
+    "Gladiator",
+    "300",
+    "Inception",
+    "The Departed",
+    "Die Hard",
+    "Django Unchained",
+    "Napoleon Dynamite",
+    "Harry Potter",
+    "Star Wars"
+];

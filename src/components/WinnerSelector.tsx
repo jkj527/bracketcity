@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import '../styles/WinnerSelector.css';
-import { survivors, tvshows } from "../data";
+import { survivors, tvshows, movies } from "../data";
 import BracketComponent from "./bracket";
 
 const WinnerSelector: React.FC = () => {
