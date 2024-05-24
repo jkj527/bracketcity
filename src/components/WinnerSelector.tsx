@@ -4,7 +4,7 @@ import { survivors, tvshows, movies } from "../data";
 import BracketComponent from "./bracket";
 
 const WinnerSelector: React.FC = () => {
-    const [selectedOption, setSelectedOption] = useState('survivors');
+    const [selectedOption, setSelectedOption] = useState<string>('survivors');
     const [contestants, setContestants] = useState<string[]>(survivors);
     const [index, setIndex] = useState<number>(0);
     const [winners, setWinners] = useState<string[]>([]);
@@ -48,7 +48,7 @@ const WinnerSelector: React.FC = () => {
                     <div>No more contestants left</div>
                 )}
             </div>
-            <BracketComponent selectedOption={selectedOption} />
+            <BracketComponent selectedOption={selectedOption} winners={winners} />
         </div>
     );
 }
