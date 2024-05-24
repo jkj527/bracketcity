@@ -5,9 +5,10 @@ import { survivors, tvshows, movies } from "../data";
 
 interface BracketComponentProps {
     selectedOption: string;
+    winners: string[];
 }
 
-const BracketComponent: React.FC<BracketComponentProps> = ({ selectedOption }) => {
+const BracketComponent: React.FC<BracketComponentProps> = ({ selectedOption, winners }) => {
     // const contestants = selectedOption === 'survivors' ? survivors : tvshows;
     let contestants: string[];
     if (selectedOption === 'survivors') {
@@ -37,10 +38,10 @@ const BracketComponent: React.FC<BracketComponentProps> = ({ selectedOption }) =
         {
             title: 'Quarter Finals',
             seeds: [
-                { id: 9, teams: [] },
-                { id: 10, teams: [] },
-                { id: 11, teams: [] },
-                { id: 12, teams: [] },
+                { id: 9, teams: [{ name: winners[0] }, { name: winners[1] }] },
+                { id: 10, teams: [{ name: winners[2] }, { name: winners[3] }] },
+                { id: 11, teams: [{ name: winners[4] }, { name: winners[5] }] },
+                { id: 12, teams: [{ name: winners[6] }, { name: winners[7] }] },
             ],
         },
         {
