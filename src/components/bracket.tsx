@@ -9,7 +9,6 @@ interface BracketComponentProps {
 }
 
 const BracketComponent: React.FC<BracketComponentProps> = ({ selectedOption, winners }) => {
-    // const contestants = selectedOption === 'survivors' ? survivors : tvshows;
     let contestants: string[];
     if (selectedOption === 'survivors') {
         contestants = survivors;
