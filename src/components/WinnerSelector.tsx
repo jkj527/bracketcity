@@ -10,6 +10,8 @@ const WinnerSelector: React.FC = () => {
     const [index, setIndex] = useState<number>(0);
     const [winners, setWinners] = useState<string[]>([]);
 
+    // implement round counter state to cycle back through winners after each round so selections continue past round 1
+
     const handleSelectionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         setSelectedOption(value);
