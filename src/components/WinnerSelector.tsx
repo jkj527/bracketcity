@@ -9,6 +9,7 @@ const WinnerSelector: React.FC = () => {
     const [contestants, setContestants] = useState<string[]>(survivors);
     const [index, setIndex] = useState<number>(0);
     const [winners, setWinners] = useState<string[]>([]);
+    const [round, setRound] = useState<number>(1);
 
     // implement round counter state to cycle back through winners after each round so selections continue past round 1
 
@@ -24,12 +25,19 @@ const WinnerSelector: React.FC = () => {
         }
         setIndex(0);
         setWinners([]);
+        setRound(1);
     };
 
     const handleClick = (winnerIndex: number) => {
         const winner = contestants[index + winnerIndex];
         setWinners(prevWinners => [...prevWinners, winner]);
         setIndex(prevIndex => prevIndex + 2);
+        if (index + 2 >= contestants.length) {
+            setContestants(winners);
+            setWinners([]);
+            setIndex(0);
+            setRound(prevRound => prevRound + 1);
+        }
     };
 
     const options = contestants.slice(index, index + 2);
