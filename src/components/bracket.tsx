@@ -6,6 +6,7 @@ import { survivors, tvshows, movies } from "../data";
 interface BracketComponentProps {
     selectedOption: string;
     winners: string[];
+    round: number;
 }
 
 const BracketComponent: React.FC<BracketComponentProps> = ({ selectedOption, winners }) => {
@@ -46,17 +47,36 @@ const BracketComponent: React.FC<BracketComponentProps> = ({ selectedOption, win
         {
             title: 'Semifinals',
             seeds: [
-                { id: 13, teams: [] },
-                { id: 14, teams: [] },
+                { id: 13, teams: [{ name: winners[8] }, { name: winners[9] }] },
+                { id: 14, teams: [{ name: winners[10] }, { name: winners[11] }] },
             ],
         },
         {
             title: 'Championship',
             seeds: [
-                { id: 15, teams: [] },
+                { id: 15, teams: [{ name: winners[12] }, { name: winners[13] }] },
             ],
         },
     ];
+
+    // const generateRounds = () => {
+    //     const rounds: IRoundProps[] = [];
+    //     let currentContestants = contestants;
+    //     let currentRound = 1;
+
+    //     while (currentContestants.length > 1) {
+    //         const seeds = [];
+    //         for (let i = 0; i < currentContestants.length; i += 2) {
+    //             seeds.push({ id: i / 2 + 1, teams: [{ name: currentContestants[i] }, { name: currentContestants[i + 1] }] });
+    //         }
+    //         rounds.push({ title: `Round ${currentRound}`, seeds });
+    //         currentContestants = winners.slice((currentRound - 1) * (contestants.length / Math.pow(2, currentRound)), currentRound * (contestants.length / Math.pow(2, currentRound)));
+    //         currentRound++;
+    //     }
+    //     return rounds;
+    // };
+
+    // const rounds = generateRounds();
 
     return (
         <div className="bracket">

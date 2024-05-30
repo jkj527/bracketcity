@@ -11,8 +11,6 @@ const WinnerSelector: React.FC = () => {
     const [winners, setWinners] = useState<string[]>([]);
     const [round, setRound] = useState<number>(1);
 
-    // implement round counter state to cycle back through winners after each round so selections continue past round 1
-
     const handleSelectionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         setSelectedOption(value);
@@ -34,7 +32,7 @@ const WinnerSelector: React.FC = () => {
         setIndex(prevIndex => prevIndex + 2);
         if (index + 2 >= contestants.length) {
             setContestants(winners);
-            setWinners([]);
+            // setWinners([]);
             setIndex(0);
             setRound(prevRound => prevRound + 1);
         }
@@ -59,7 +57,7 @@ const WinnerSelector: React.FC = () => {
                     <div>No more contestants left</div>
                 )}
             </div>
-            <BracketComponent selectedOption={selectedOption} winners={winners} />
+            <BracketComponent selectedOption={selectedOption} winners={winners} round={round} />
         </div>
     );
 }
