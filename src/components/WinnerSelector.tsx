@@ -9,6 +9,7 @@ const WinnerSelector: React.FC = () => {
     const [contestants, setContestants] = useState<string[]>(survivors);
     const [index, setIndex] = useState<number>(0);
     const [winners, setWinners] = useState<string[]>([]);
+    const [standings, setStandings] = useState<string[]>([]);
     const [round, setRound] = useState<number>(1);
 
     const handleSelectionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -23,12 +24,14 @@ const WinnerSelector: React.FC = () => {
         }
         setIndex(0);
         setWinners([]);
+        setStandings([]);
         setRound(1);
     };
 
     // this new func should handle the asynchronicity of the last winner of the round getting added before contestants is set to winners
     const handleClick = (winnerIndex: number) => {
         const winner = contestants[index + winnerIndex];
+        setStandings([...standings, winner]);
         setWinners(prevWinners => {
             const updatedWinners = [...prevWinners, winner];
             
@@ -72,7 +75,7 @@ const WinnerSelector: React.FC = () => {
                     <div>No more contestants left</div>
                 )}
             </div>
-            <BracketComponent selectedOption={selectedOption} winners={winners} round={round} />
+            <BracketComponent selectedOption={selectedOption} winners={winners} round={round} standings={standings} />
         </div>
     );
 }
