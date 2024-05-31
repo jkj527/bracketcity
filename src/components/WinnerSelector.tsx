@@ -26,19 +26,34 @@ const WinnerSelector: React.FC = () => {
         setRound(1);
     };
 
+    // this new func should handle the asynchronicity of the last winner of the round getting added before contestants is set to winners
     const handleClick = (winnerIndex: number) => {
         const winner = contestants[index + winnerIndex];
-        setWinners(prevWinners => [...prevWinners, winner]);
-        setIndex(prevIndex => prevIndex + 2);
-        if (index + 2 >= contestants.length) {
-            setContestants(winners);
-            // setWinners([]);
-            setIndex(0);
-            setRound(prevRound => prevRound + 1);
-        }
+        setWinners(prevWinners => {
+            const updatedWinners = [...prevWinners, winner];
+            
+            setIndex(prevIndex => {
+                const newIndex = prevIndex + 2;
+
+                if (newIndex >= contestants.length) {
+                    setContestants(updatedWinners);
+                    setWinners([]);
+                    setRound(prevRound => prevRound + 1);
+                    return 0;
+                } else {
+                    return newIndex;
+                }
+            });
+
+            return updatedWinners;
+        });
     };
 
     const options = contestants.slice(index, index + 2);
+    // console.log('Contestants:', contestants);
+    // console.log('Index: ', index);
+    // console.log('Options: ', options);
+    // console.log('Winners: ', winners);
 
     return (
         <div className="winner">
