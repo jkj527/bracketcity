@@ -11,6 +11,7 @@ const WinnerSelector: React.FC = () => {
     const [winners, setWinners] = useState<string[]>([]);
     const [standings, setStandings] = useState<string[]>([]);
     const [round, setRound] = useState<number>(1);
+    const [champion, setChampion] = useState<string | null>(null);
 
     const handleSelectionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
@@ -34,6 +35,9 @@ const WinnerSelector: React.FC = () => {
         setStandings([...standings, winner]);
         setWinners(prevWinners => {
             const updatedWinners = [...prevWinners, winner];
+            if (winners.length === 1) {
+                setChampion(winners[0]);
+            }
             
             setIndex(prevIndex => {
                 const newIndex = prevIndex + 2;
@@ -72,7 +76,7 @@ const WinnerSelector: React.FC = () => {
                         <button onClick={() => handleClick(1)}>{options[1]}</button>
                     </>
                 ) : (
-                    <div>No more contestants left</div>
+                    <div className="champion">{champion} is the champion!</div>
                 )}
             </div>
             <BracketComponent selectedOption={selectedOption} winners={winners} round={round} standings={standings} />
