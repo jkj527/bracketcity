@@ -13,6 +13,8 @@ const WinnerSelector: React.FC = () => {
     const [round, setRound] = useState<number>(1);
     const [champion, setChampion] = useState<string | null>(null);
 
+    // ONLY WORKS FOR SURVIVOR - MAKE APPROPRIATE CHANGES TO ACCOMMODATE OTHER SELECTIONS
+
     const handleSelectionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         setSelectedOption(value);
