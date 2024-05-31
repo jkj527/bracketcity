@@ -72,3 +72,25 @@
     color: rgb(30, 30, 54);
     margin: 5px 0;
 }
+
+.champion {
+    font-size: 28px;
+    font-weight: bold;
+    color: #FFFFFF; /* White */
+    padding: 20px;
+    text-shadow: 0 0 5px #0056b3, 0 0 10px #0056b3, 0 0 15px #0056b3, 0 0 20px #0056b3;
+    animation: sparkle 2s infinite;
+    display: inline-block;
+}
+
+@keyframes sparkle {
+    0% {
+        text-shadow: 0 0 5px #0056b3, 0 0 10px #0056b3, 0 0 20px #0056b3, 0 0 30px #0056b3, 0 0 40px #0056b3, 0 0 50px #0056b3, 0 0 60px #0056b3, 0 0 70px #0056b3;
+    }
+    50% {
+        text-shadow: 0 0 10px #1e1e36, 0 0 20px #1e1e36, 0 0 30px #1e1e36, 0 0 40px #1e1e36, 0 0 50px #1e1e36, 0 0 60px #1e1e36, 0 0 70px #1e1e36, 0 0 80px #1e1e36;
+    }
+    100% {
+        text-shadow: 0 0 5px #0056b3, 0 0 10px #0056b3, 0 0 20px #0056b3, 0 0 30px #0056b3, 0 0 40px #0056b3, 0 0 50px #0056b3, 0 0 60px #0056b3, 0 0 70px #0056b3;
+    }
+}

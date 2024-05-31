@@ -9,7 +9,11 @@ const WinnerSelector: React.FC = () => {
     const [contestants, setContestants] = useState<string[]>(survivors);
     const [index, setIndex] = useState<number>(0);
     const [winners, setWinners] = useState<string[]>([]);
+    const [standings, setStandings] = useState<string[]>([]);
     const [round, setRound] = useState<number>(1);
+    const [champion, setChampion] = useState<string | null>(null);
+
+    // ONLY WORKS FOR SURVIVOR - MAKE APPROPRIATE CHANGES TO ACCOMMODATE OTHER SELECTIONS
 
     const handleSelectionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
@@ -23,22 +27,42 @@ const WinnerSelector: React.FC = () => {
         }
         setIndex(0);
         setWinners([]);
+        setStandings([]);
         setRound(1);
     };
 
+    // this new func should handle the asynchronicity of the last winner of the round getting added before contestants is set to winners
     const handleClick = (winnerIndex: number) => {
         const winner = contestants[index + winnerIndex];
-        setWinners(prevWinners => [...prevWinners, winner]);
-        setIndex(prevIndex => prevIndex + 2);
-        if (index + 2 >= contestants.length) {
-            setContestants(winners);
-            // setWinners([]);
-            setIndex(0);
-            setRound(prevRound => prevRound + 1);
-        }
+        setStandings([...standings, winner]);
+        setWinners(prevWinners => {
+            const updatedWinners = [...prevWinners, winner];
+            if (winners.length === 1) {
+                setChampion(winners[0]);
+            }
+            
+            setIndex(prevIndex => {
+                const newIndex = prevIndex + 2;
+
+                if (newIndex >= contestants.length) {
+                    setContestants(updatedWinners);
+                    setWinners([]);
+                    setRound(prevRound => prevRound + 1);
+                    return 0;
+                } else {
+                    return newIndex;
+                }
+            });
+
+            return updatedWinners;
+        });
     };
 
     const options = contestants.slice(index, index + 2);
+    // console.log('Contestants:', contestants);
+    // console.log('Index: ', index);
+    // console.log('Options: ', options);
+    // console.log('Winners: ', winners);
 
     return (
         <div className="winner">
@@ -54,10 +78,10 @@ const WinnerSelector: React.FC = () => {
                         <button onClick={() => handleClick(1)}>{options[1]}</button>
                     </>
                 ) : (
-                    <div>No more contestants left</div>
+                    <div className="champion">{champion} is the champion!</div>
                 )}
             </div>
-            <BracketComponent selectedOption={selectedOption} winners={winners} round={round} />
+            <BracketComponent selectedOption={selectedOption} winners={winners} round={round} standings={standings} />
         </div>
     );
 }

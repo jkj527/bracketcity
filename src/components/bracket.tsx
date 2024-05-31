@@ -7,9 +7,10 @@ interface BracketComponentProps {
     selectedOption: string;
     winners: string[];
     round: number;
+    standings: string[];
 }
 
-const BracketComponent: React.FC<BracketComponentProps> = ({ selectedOption, winners }) => {
+const BracketComponent: React.FC<BracketComponentProps> = ({ selectedOption, standings }) => {
     let contestants: string[];
     if (selectedOption === 'survivors') {
         contestants = survivors;
@@ -38,45 +39,26 @@ const BracketComponent: React.FC<BracketComponentProps> = ({ selectedOption, win
         {
             title: 'Quarter Finals',
             seeds: [
-                { id: 9, teams: [{ name: winners[0] }, { name: winners[1] }] },
-                { id: 10, teams: [{ name: winners[2] }, { name: winners[3] }] },
-                { id: 11, teams: [{ name: winners[4] }, { name: winners[5] }] },
-                { id: 12, teams: [{ name: winners[6] }, { name: winners[7] }] },
+                { id: 9, teams: [{ name: standings[0] }, { name: standings[1] }] },
+                { id: 10, teams: [{ name: standings[2] }, { name: standings[3] }] },
+                { id: 11, teams: [{ name: standings[4] }, { name: standings[5] }] },
+                { id: 12, teams: [{ name: standings[6] }, { name: standings[7] }] },
             ],
         },
         {
             title: 'Semifinals',
             seeds: [
-                { id: 13, teams: [{ name: winners[8] }, { name: winners[9] }] },
-                { id: 14, teams: [{ name: winners[10] }, { name: winners[11] }] },
+                { id: 13, teams: [{ name: standings[8] }, { name: standings[9] }] },
+                { id: 14, teams: [{ name: standings[10] }, { name: standings[11] }] },
             ],
         },
         {
             title: 'Championship',
             seeds: [
-                { id: 15, teams: [{ name: winners[12] }, { name: winners[13] }] },
+                { id: 15, teams: [{ name: standings[12] }, { name: standings[13] }] },
             ],
         },
     ];
-
-    // const generateRounds = () => {
-    //     const rounds: IRoundProps[] = [];
-    //     let currentContestants = contestants;
-    //     let currentRound = 1;
-
-    //     while (currentContestants.length > 1) {
-    //         const seeds = [];
-    //         for (let i = 0; i < currentContestants.length; i += 2) {
-    //             seeds.push({ id: i / 2 + 1, teams: [{ name: currentContestants[i] }, { name: currentContestants[i + 1] }] });
-    //         }
-    //         rounds.push({ title: `Round ${currentRound}`, seeds });
-    //         currentContestants = winners.slice((currentRound - 1) * (contestants.length / Math.pow(2, currentRound)), currentRound * (contestants.length / Math.pow(2, currentRound)));
-    //         currentRound++;
-    //     }
-    //     return rounds;
-    // };
-
-    // const rounds = generateRounds();
 
     return (
         <div className="bracket">
