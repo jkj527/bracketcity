@@ -13,8 +13,6 @@ const WinnerSelector: React.FC = () => {
     const [round, setRound] = useState<number>(1);
     const [champion, setChampion] = useState<string | null>(null);
 
-    // ONLY WORKS FOR SURVIVOR - MAKE APPROPRIATE CHANGES TO ACCOMMODATE OTHER SELECTIONS
-
     const handleSelectionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         setSelectedOption(value);
@@ -29,6 +27,7 @@ const WinnerSelector: React.FC = () => {
         setWinners([]);
         setStandings([]);
         setRound(1);
+        setChampion(null);
     };
 
     // this new func should handle the asynchronicity of the last winner of the round getting added before contestants is set to winners
@@ -59,6 +58,7 @@ const WinnerSelector: React.FC = () => {
     };
 
     const options = contestants.slice(index, index + 2);
+    // console.log('Selected Option: ', selectedOption);
     // console.log('Contestants:', contestants);
     // console.log('Index: ', index);
     // console.log('Options: ', options);

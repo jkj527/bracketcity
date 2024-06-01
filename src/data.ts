@@ -33,7 +33,6 @@ export const tvshows: string[] = [
     "Brooklyn Nine-Nine",
     "Succession",
     "Silicon Valley",
-    "Lost",
     "The Boys"
 ];
 
@@ -45,7 +44,6 @@ export const movies: string[] = [
     "The Silence of the Lambs",
     "The Godfather",
     "The Shining",
-    "Whiplash",
     "Gladiator",
     "300",
     "Inception",
