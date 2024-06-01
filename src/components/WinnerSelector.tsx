@@ -60,10 +60,11 @@ const WinnerSelector: React.FC = () => {
     };
 
     const options = contestants.slice(index, index + 2);
-    // console.log('Contestants:', contestants);
-    // console.log('Index: ', index);
-    // console.log('Options: ', options);
-    // console.log('Winners: ', winners);
+    console.log('Selected Option: ', selectedOption);
+    console.log('Contestants:', contestants);
+    console.log('Index: ', index);
+    console.log('Options: ', options);
+    console.log('Winners: ', winners);
 
     return (
         <div className="winner">
