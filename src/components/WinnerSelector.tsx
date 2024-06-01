@@ -29,6 +29,7 @@ const WinnerSelector: React.FC = () => {
         setWinners([]);
         setStandings([]);
         setRound(1);
+        setChampion(null);
     };
 
     // this new func should handle the asynchronicity of the last winner of the round getting added before contestants is set to winners
