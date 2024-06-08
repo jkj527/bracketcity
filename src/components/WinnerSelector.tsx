@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../styles/WinnerSelector.css';
 import { survivors, tvshows, movies } from "../data";
-// import { randomizeArr } from "../utils"
+import { randomizeArr } from "../utils"
 import BracketComponent from "./bracket";
 
 const WinnerSelector: React.FC = () => {
@@ -16,19 +16,22 @@ const WinnerSelector: React.FC = () => {
     const handleSelectionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         setSelectedOption(value);
+        let newContestants: string[] = [];
         if (value === 'survivors') {
-            setContestants(survivors);
+            newContestants = randomizeArr(survivors);
         } else if (value === 'tvshows') {
-            setContestants(tvshows);
+            newContestants = randomizeArr(tvshows);
         } else if (value === 'movies') {
-            setContestants(movies);
+            newContestants = randomizeArr(movies);
         }
+        setContestants(newContestants);
         setIndex(0);
         setWinners([]);
         setStandings([]);
         setRound(1);
         setChampion(null);
     };
+    
 
     // this new func should handle the asynchronicity of the last winner of the round getting added before contestants is set to winners
     const handleClick = (winnerIndex: number) => {
